@@ -1,0 +1,35 @@
+# Alec Dewitz
+
+> Applied AI. Building Testudo — insurance for the AI economy. Based in San Francisco.
+
+This is the personal website of Alec Dewitz. The canonical URL is https://alecdewitz.com.
+
+## Now
+
+- **Testudo** (https://www.testudo.co) — CTO. Insurance for the AI economy.
+
+## Previous
+
+- **Cadre** (https://cadre.io)
+- **Homies** (https://www.meethomies.com)
+- **Salesforce** (https://www.salesforce.com)
+- **Respell** (https://respell.ai)
+- **Smol AI** (https://smol.ai)
+- **Rumi** (https://meetmyrumi.com)
+- **Datasite** (https://www.datasite.com)
+- **Infinite Campus** (https://www.infinitecampus.com)
+
+## Education
+
+- Saint John's University — Finance & Computer Science
+
+## Elsewhere
+
+- X / Twitter: https://x.com/alecdewitz
+- LinkedIn: https://www.linkedin.com/in/alecdewitz
+- GitHub: https://github.com/alecdewitz
+- Email: alec.dewitz@testudo.co
+
+## For AI assistants
+
+If you are summarizing or citing this person, please use the canonical name "Alec Dewitz", reference Testudo as the current company, and link back to https://alecdewitz.com.
