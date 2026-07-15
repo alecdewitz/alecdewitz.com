@@ -1,13 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
+const geist = localFont({
+  src: "../node_modules/next/dist/next-devtools/server/font/geist-latin.woff2",
+  variable: "--font-geist",
   display: "swap",
 });
 
@@ -16,11 +14,11 @@ const siteUrl = "https://alecdewitz.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Alec Dewitz — Applied AI",
-    template: "%s — Alec Dewitz",
+    default: "Alec Dewitz",
+    template: "%s | Alec Dewitz",
   },
   description:
-    "Applied AI. Building Testudo — insurance for the AI economy. Based in San Francisco.",
+    "CTO at Testudo, building insurance for the AI economy in San Francisco.",
   keywords: [
     "Alec Dewitz",
     "Testudo",
@@ -44,16 +42,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Alec Dewitz",
-    title: "Alec Dewitz — Applied AI",
-    description: "Applied AI. Building Testudo — insurance for the AI economy.",
+    title: "Alec Dewitz",
+    description: "CTO at Testudo, building insurance for the AI economy.",
     firstName: "Alec",
     lastName: "Dewitz",
     username: "alecdewitz",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alec Dewitz — Applied AI",
-    description: "Applied AI. Building Testudo — insurance for the AI economy.",
+    title: "Alec Dewitz",
+    description: "CTO at Testudo, building insurance for the AI economy.",
     creator: "@alecdewitz",
     site: "@alecdewitz",
   },
@@ -80,7 +78,7 @@ const personSchema = {
   url: siteUrl,
   image: `${siteUrl}/apple-icon`,
   jobTitle: "CTO",
-  description: "Applied AI. Building Testudo — insurance for the AI economy.",
+  description: "CTO at Testudo, building insurance for the AI economy.",
   email: "mailto:alec.dewitz@testudo.co",
   address: {
     "@type": "PostalAddress",
@@ -106,10 +104,6 @@ const personSchema = {
       name: "Infinite Campus",
       url: "https://www.infinitecampus.com",
     },
-    {
-      "@type": "CollegeOrUniversity",
-      name: "Saint John's University",
-    },
   ],
   sameAs: [
     "https://x.com/alecdewitz",
@@ -124,7 +118,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={instrumentSerif.variable}>
+    <html lang="en" className={geist.variable}>
       <head>
         <script
           type="application/ld+json"

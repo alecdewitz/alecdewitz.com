@@ -13,7 +13,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@fontsource/instrument-serif": "^5.2.8",
     "@tailwindcss/postcss": "^4.1.11",
     "@vercel/analytics": "^2.0.1",
     "next": "^16.2.6",
