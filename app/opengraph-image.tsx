@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Alec Dewitz";
+export const alt = "AD monogram";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -12,9 +12,7 @@ export default function OpengraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "72px 80px",
+          padding: 36,
           background: "#ffffff",
           color: "#111111",
           fontFamily: "sans-serif",
@@ -22,46 +20,19 @@ export default function OpengraphImage() {
       >
         <div
           style={{
+            width: "100%",
+            height: "100%",
             display: "flex",
-            justifyContent: "space-between",
-            paddingBottom: 24,
-            borderBottom: "2px solid #111111",
-            fontSize: 18,
+            alignItems: "center",
+            justifyContent: "center",
+            border: "1px solid #d7d7d7",
+            fontSize: 360,
+            fontWeight: 500,
+            letterSpacing: "-0.07em",
+            lineHeight: 1,
           }}
         >
-          <span>Alec Dewitz</span>
-          <span style={{ color: "#767676" }}>San Francisco, CA</span>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div
-            style={{
-              maxWidth: 760,
-              fontSize: 76,
-              fontWeight: 500,
-              lineHeight: 1.02,
-              letterSpacing: "-0.05em",
-            }}
-          >
-            CTO at Testudo.
-          </div>
-          <div style={{ color: "#767676", fontSize: 24 }}>
-            CTO at Testudo
-          </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            paddingTop: 22,
-            borderTop: "1px solid #d8d8d8",
-            color: "#767676",
-            fontSize: 17,
-          }}
-        >
-          <span>San Francisco</span>
-          <span>alecdewitz.com</span>
+          AD
         </div>
       </div>
     ),
