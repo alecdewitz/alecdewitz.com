@@ -1,41 +1,74 @@
+// Site content. Keep public/llms.txt and the JSON-LD in app/layout.tsx in sync.
+
 export type PortfolioLink = {
   name: string;
   href: string;
-  detail?: string;
+  /** Path to a square logo in public/logos. Falls back to a monogram. */
+  logo?: string;
+  description?: string;
+  status?: "Acquired" | "Sunset";
+};
+
+export type SocialLink = {
+  name: string;
+  href: string;
 };
 
 export const current: PortfolioLink = {
   name: "Testudo",
   href: "https://www.testudo.co",
-  detail: "Insurance for the AI economy",
+  logo: "/logos/testudo.png",
+  description: "Insurance for companies deploying AI",
 };
 
 export const projects: PortfolioLink[] = [
-  { name: "myQR", href: "https://myqr.com" },
-  { name: "Homies", href: "https://www.meethomies.com" },
-  { name: "Smol AI", href: "https://smol.ai" },
-  { name: "Bonkalytics", href: "https://bonkalytics.com" },
+  {
+    name: "Homies",
+    href: "https://www.meethomies.com",
+    logo: "/logos/homies.svg",
+    description: "Shared living for adults with disabilities",
+  },
+  {
+    name: "myQR.com",
+    href: "https://myqr.com",
+    logo: "/logos/myqr.png",
+    description: "Digital business cards",
+  },
+  {
+    name: "Smol AI",
+    href: "https://smol.ai",
+    logo: "/logos/smol-ai.svg",
+    description: "News for AI engineers",
+  },
+  {
+    name: "Bonkalytics",
+    href: "https://bonkalytics.com",
+    logo: "/logos/bonkalytics.png",
+    description: "NFT market analytics",
+    status: "Sunset",
+  },
 ];
 
 export const experience: PortfolioLink[] = [
-  { name: "Salesforce", href: "https://www.salesforce.com" },
-  { name: "Respell", href: "https://respell.ai" },
-  { name: "Cadre", href: "https://cadre.io" },
-  { name: "Rumi", href: "https://meetmyrumi.com" },
-  { name: "Datasite", href: "https://www.datasite.com" },
-  { name: "Infinite Campus", href: "https://www.infinitecampus.com" },
+  { name: "Salesforce", href: "https://www.salesforce.com", logo: "/logos/salesforce.png" },
+  {
+    name: "Respell",
+    href: "https://respell.ai",
+    logo: "/logos/respell.svg",
+    status: "Acquired",
+  },
+  { name: "Cadre", href: "https://cadre.io", logo: "/logos/cadre.png" },
+  { name: "Rumi", href: "https://meetmyrumi.com", logo: "/logos/rumi.png" },
+  { name: "Datasite", href: "https://www.datasite.com", logo: "/logos/datasite.png" },
+  {
+    name: "Infinite Campus",
+    href: "https://www.infinitecampus.com",
+    logo: "/logos/infinite-campus.png",
+  },
 ];
 
-export const socials: PortfolioLink[] = [
-  { name: "X", href: "https://x.com/alecdewitz", detail: "@alecdewitz" },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/alecdewitz",
-    detail: "in/alecdewitz",
-  },
-  {
-    name: "GitHub",
-    href: "https://github.com/alecdewitz",
-    detail: "@alecdewitz",
-  },
+export const socials: SocialLink[] = [
+  { name: "X", href: "https://x.com/alecdewitz" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/alecdewitz" },
+  { name: "GitHub", href: "https://github.com/alecdewitz" },
 ];

@@ -1,11 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Geist, Newsreader } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
-const geist = localFont({
-  src: "../node_modules/next/dist/next-devtools/server/font/geist-latin.woff2",
+const geist = Geist({
+  subsets: ["latin"],
   variable: "--font-geist",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
   display: "swap",
 });
 
@@ -18,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Alec Dewitz",
   },
   description:
-    "CTO at Testudo, building insurance for the AI economy in San Francisco.",
+    "CTO at Testudo, building insurance for companies deploying AI. Based in New York.",
   keywords: [
     "Alec Dewitz",
     "Testudo",
@@ -26,7 +32,7 @@ export const metadata: Metadata = {
     "AI engineer",
     "founder",
     "CTO",
-    "San Francisco",
+    "New York",
     "Cadre",
     "Respell",
     "Smol AI",
@@ -36,6 +42,9 @@ export const metadata: Metadata = {
   publisher: "Alec Dewitz",
   alternates: {
     canonical: siteUrl,
+    types: {
+      "application/rss+xml": `${siteUrl}/feed.xml`,
+    },
   },
   openGraph: {
     type: "profile",
@@ -43,7 +52,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Alec Dewitz",
     title: "Alec Dewitz",
-    description: "CTO at Testudo, building insurance for the AI economy.",
+    description: "CTO at Testudo, building insurance for companies deploying AI.",
     firstName: "Alec",
     lastName: "Dewitz",
     username: "alecdewitz",
@@ -51,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Alec Dewitz",
-    description: "CTO at Testudo, building insurance for the AI economy.",
+    description: "CTO at Testudo, building insurance for companies deploying AI.",
     creator: "@alecdewitz",
     site: "@alecdewitz",
   },
@@ -76,14 +85,13 @@ const personSchema = {
   givenName: "Alec",
   familyName: "Dewitz",
   url: siteUrl,
-  image: `${siteUrl}/apple-icon`,
+  image: `${siteUrl}/alec-dewitz.jpg`,
   jobTitle: "CTO",
-  description: "CTO at Testudo, building insurance for the AI economy.",
-  email: "mailto:alec.dewitz@testudo.co",
+  description: "CTO at Testudo, building insurance for companies deploying AI.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "San Francisco",
-    addressRegion: "CA",
+    addressLocality: "New York",
+    addressRegion: "NY",
     addressCountry: "US",
   },
   worksFor: {
@@ -118,7 +126,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={geist.variable}>
+    <html lang="en" className={`${geist.variable} ${newsreader.variable}`}>
       <head>
         <script
           type="application/ld+json"
