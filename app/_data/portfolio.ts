@@ -26,25 +26,21 @@ export const projects: PortfolioLink[] = [
     name: "Homies",
     href: "https://www.meethomies.com",
     logo: "/logos/homies.svg",
-    description: "Shared living for adults with disabilities",
   },
   {
     name: "myQR",
     href: "https://myqr.com",
     logo: "/logos/myqr.svg",
-    description: "Digital business cards",
   },
   {
     name: "Smol AI",
     href: "https://smol.ai",
     logo: "/logos/smol-ai.svg",
-    description: "News for AI engineers",
   },
   {
     name: "Bonkalytics",
     href: "https://bonkalytics.com",
     logo: "/logos/bonkalytics.png",
-    description: "NFT market analytics",
     status: "Sunset",
   },
 ];
