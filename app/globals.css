@@ -111,8 +111,40 @@ a:focus-visible {
   color: var(--muted);
 }
 
-.site-header nav a:hover {
+/* Same hover as the entries: a lime highlighter, plus an arrow on outbound links.
+   The arrow is positioned outside the link so it doesn't shift the nav. */
+.site-header nav a {
+  position: relative;
+  background: linear-gradient(transparent 44%, var(--lime) 44%, var(--lime) 82%, transparent 82%) no-repeat 0 0 / 0% 100%;
+}
+
+.site-header nav a:is(:hover, :focus-visible) {
   color: var(--text);
+  background-size: 100% 100%;
+}
+
+.site-header nav a[target="_blank"]::after {
+  content: "↗";
+  position: absolute;
+  left: calc(100% + 0.15rem);
+  color: var(--muted);
+  opacity: 0;
+  transform: translate(-4px, 2px);
+}
+
+.site-header nav a[target="_blank"]:is(:hover, :focus-visible)::after {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-header nav a {
+    transition: color 160ms, background-size 220ms ease-out;
+  }
+
+  .site-header nav a::after {
+    transition: opacity 160ms, transform 160ms;
+  }
 }
 
 .site-footer {
@@ -237,9 +269,12 @@ a:focus-visible {
   list-style: none;
 }
 
-/* Logo, name, and tag share one row, centered on the text's cap height. */
+/* Logo, name, and tag share one row, centered on the text's cap height.
+   Shrink to the content so the empty space beside it isn't part of the link. */
 .entry {
   display: grid;
+  width: fit-content;
+  max-width: 100%;
   grid-template-columns: 20px minmax(0, 1fr);
   align-items: center;
   gap: 0.35rem 0.75rem;
@@ -270,9 +305,37 @@ a:focus-visible {
   font-weight: 500;
 }
 
-.entry:hover .entry__label {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+/* Hover: a lime highlighter sweeps behind the name. */
+.entry__label {
+  background: linear-gradient(transparent 44%, var(--lime) 44%, var(--lime) 82%, transparent 82%) no-repeat 0 0 / 0% 100%;
+}
+
+.entry:is(:hover, :focus-visible) .entry__label {
+  background-size: 100% 100%;
+}
+
+/* Hover: an outbound arrow slides in after the name. */
+.entry__name::after {
+  content: "↗";
+  color: var(--muted);
+  font-weight: 400;
+  opacity: 0;
+  transform: translate(-4px, 2px);
+}
+
+.entry:is(:hover, :focus-visible) .entry__name::after {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .entry__label {
+    transition: background-size 220ms ease-out;
+  }
+
+  .entry__name::after {
+    transition: opacity 160ms, transform 160ms;
+  }
 }
 
 .entry__tag {
