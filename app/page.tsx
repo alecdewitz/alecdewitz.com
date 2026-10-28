@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { NycMap } from "./_components/nyc-map";
-import { SiteFooter, SiteHeader } from "./_components/site-chrome";
-import { current, experience, projects, type PortfolioLink } from "./_data/portfolio";
-import { getPostSlugs } from "./_lib/writing";
+import { NewTabHint, SiteFooter, SiteHeader } from "./_components/site-chrome";
+import { current, experience, projects, tagline, type PortfolioLink } from "./_data/portfolio";
 
 // Logos load eagerly and decode synchronously so they paint with the text
 // instead of popping in after it. High priority puts every logo in React's
@@ -19,7 +18,7 @@ function Logo({ item }: { item: PortfolioLink }) {
 
   return (
     <Image
-      className="entry__logo"
+      className={item.invertLogoInDark ? "entry__logo entry__logo--invert" : "entry__logo"}
       src={item.logo}
       alt=""
       width={20}
@@ -32,7 +31,7 @@ function Logo({ item }: { item: PortfolioLink }) {
   );
 }
 
-function Entry({ item }: { item: PortfolioLink }) {
+function Entry({ item, showDescription = false }: { item: PortfolioLink; showDescription?: boolean }) {
   return (
     <li>
       <a className="entry" href={item.href} target="_blank" rel="noreferrer">
@@ -40,22 +39,23 @@ function Entry({ item }: { item: PortfolioLink }) {
         <span className="entry__name">
           <span className="entry__label">{item.name}</span>
           {item.status ? <span className="entry__tag">{item.status}</span> : null}
+          <NewTabHint />
         </span>
-        {item.description ? <span className="entry__meta">{item.description}</span> : null}
+        {showDescription && item.description ? (
+          <span className="entry__meta">{item.description}</span>
+        ) : null}
       </a>
     </li>
   );
 }
 
 export default function Home() {
-  const hasWriting = getPostSlugs().length > 0;
-
   return (
     <div className="page">
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <SiteHeader isHome showWriting={hasWriting} />
+      <SiteHeader isHome />
 
       <main id="main">
         <div className="intro">
@@ -63,8 +63,9 @@ export default function Home() {
             I&apos;m CTO of{" "}
             <a href={current.href} target="_blank" rel="noreferrer">
               {current.name}
+              <NewTabHint />
             </a>
-            , <mark>building the insurance for AI</mark>. I currently live in
+            , <mark>{tagline}</mark>. I currently live in
             New York, and I&apos;ve spent my career turning new technology into products
             people love to use.
           </p>
@@ -76,7 +77,7 @@ export default function Home() {
             <section aria-labelledby="work">
               <h2 id="work">Work</h2>
               <ul className="entries">
-                <Entry item={current} />
+                <Entry item={current} showDescription />
               </ul>
             </section>
 

@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { summary } from "./_data/portfolio";
 
 export const alt = "Alec Dewitz, CTO at Testudo";
 export const size = { width: 1200, height: 630 };
@@ -29,7 +30,7 @@ export default async function OpengraphImage() {
             Alec Dewitz
           </div>
           <div style={{ fontSize: 40, lineHeight: 1.3, maxWidth: 820, opacity: 0.75 }}>
-            CTO at Testudo, building insurance for companies deploying AI.
+            {summary}
           </div>
         </div>
         <div style={{ fontSize: 32, opacity: 0.75 }}>alecdewitz.com</div>

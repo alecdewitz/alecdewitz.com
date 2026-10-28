@@ -2,13 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { socials } from "../_data/portfolio";
 
-export function SiteHeader({
-  isHome = false,
-  showWriting,
-}: {
-  isHome?: boolean;
-  showWriting: boolean;
-}) {
+export function SiteHeader({ isHome = false }: { isHome?: boolean }) {
   const name = isHome ? <h1>Alec Dewitz</h1> : <Link href="/">Alec Dewitz</Link>;
 
   return (
@@ -26,15 +20,20 @@ export function SiteHeader({
         {name}
       </div>
       <nav aria-label="Primary">
-        {showWriting ? <Link href="/writing">Writing</Link> : null}
         {socials.map((social) => (
           <a key={social.name} href={social.href} target="_blank" rel="noreferrer">
             {social.name}
+            <NewTabHint />
           </a>
         ))}
       </nav>
     </header>
   );
+}
+
+/** Screen reader text for links that open in a new tab; the ↗ shown on hover is decorative. */
+export function NewTabHint() {
+  return <span className="sr-only"> (opens in new tab)</span>;
 }
 
 export function SiteFooter() {

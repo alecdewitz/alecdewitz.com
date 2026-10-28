@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "./_data/portfolio";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,7 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://alecdewitz.com/sitemap.xml",
-    host: "https://alecdewitz.com",
+    sitemap: `${siteUrl}/sitemap.xml`,
   };
 }
