@@ -4,6 +4,10 @@ import { SiteFooter, SiteHeader } from "./_components/site-chrome";
 import { current, experience, projects, type PortfolioLink } from "./_data/portfolio";
 import { getPostSlugs } from "./_lib/writing";
 
+// Logos load eagerly and decode synchronously so they paint with the text
+// instead of popping in after it. High priority puts every logo in React's
+// Link preload header; otherwise only the first ~500 characters of image URLs
+// make it in and the rest load late.
 function Logo({ item }: { item: PortfolioLink }) {
   if (!item.logo) {
     return (
@@ -20,6 +24,9 @@ function Logo({ item }: { item: PortfolioLink }) {
       alt=""
       width={20}
       height={20}
+      loading="eager"
+      decoding="sync"
+      fetchPriority="high"
       unoptimized
     />
   );
@@ -57,7 +64,7 @@ export default function Home() {
             <a href={current.href} target="_blank" rel="noreferrer">
               {current.name}
             </a>
-            , where we&apos;re <mark>building insurance for AI</mark>. I currently live in
+            , <mark>building the insurance for AI</mark>. I currently live in
             New York, and I&apos;ve spent my career turning new technology into products
             people love to use.
           </p>
