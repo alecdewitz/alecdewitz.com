@@ -29,9 +29,9 @@ export const projects: PortfolioLink[] = [
     description: "Shared living for adults with disabilities",
   },
   {
-    name: "myQR.com",
+    name: "myQR",
     href: "https://myqr.com",
-    logo: "/logos/myqr.png",
+    logo: "/logos/myqr.svg",
     description: "Digital business cards",
   },
   {
@@ -50,20 +50,20 @@ export const projects: PortfolioLink[] = [
 ];
 
 export const experience: PortfolioLink[] = [
-  { name: "Salesforce", href: "https://www.salesforce.com", logo: "/logos/salesforce.png" },
+  { name: "Salesforce", href: "https://www.salesforce.com", logo: "/logos/salesforce.svg" },
   {
     name: "Respell",
     href: "https://respell.ai",
     logo: "/logos/respell.svg",
     status: "Acquired",
   },
-  { name: "Cadre", href: "https://cadre.io", logo: "/logos/cadre.png" },
-  { name: "Rumi", href: "https://meetmyrumi.com", logo: "/logos/rumi.png" },
-  { name: "Datasite", href: "https://www.datasite.com", logo: "/logos/datasite.png" },
+  { name: "Cadre", href: "https://cadre.io", logo: "/logos/cadre.svg" },
+  { name: "Rumi", href: "https://meetmyrumi.com", logo: "/logos/rumi.svg" },
+  { name: "Datasite", href: "https://www.datasite.com", logo: "/logos/datasite.svg" },
   {
     name: "Infinite Campus",
     href: "https://www.infinitecampus.com",
-    logo: "/logos/infinite-campus.png",
+    logo: "/logos/infinite-campus.svg",
   },
 ];
 

@@ -1,7 +1,9 @@
 import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  devIndicators: false,
+};
 
 const withMDX = createMDX({
   options: {
